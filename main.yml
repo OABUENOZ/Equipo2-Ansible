@@ -1,5 +1,5 @@
 ---
-- name: Mostrar información del sistema y nombres de integrantes
+- name: Mostrar información del sistema
   hosts: localhost
   connection: local
   gather_facts: true
@@ -12,7 +12,7 @@
 
         - name: Imprimir la dirección IP del host
           ansible.builtin.debug:
-            msg: "La dirección IP del host es: {{ ansible_default_ipv4.address }}"
+            msg: "La dirección IP del host es: {{ ansible_all_ipv4_addresses }}"
 
         - name: Imprimir el directorio donde se ejecuta el playbook
           ansible.builtin.debug:
