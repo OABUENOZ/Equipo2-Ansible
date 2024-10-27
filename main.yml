@@ -10,10 +10,6 @@
           ansible.builtin.debug:
             msg: "La distribución de Linux es: {{ ansible_distribution }}"
 
-        - name: Imprimir la dirección IP del host
-          ansible.builtin.debug:
-            msg: "La dirección IP del host es: {{ ansible_all_ipv4_addresses }}"
-
         - name: Imprimir el directorio donde se ejecuta el playbook
           ansible.builtin.debug:
             msg: "El playbook se ejecuta en el directorio: {{ playbook_dir }}"
