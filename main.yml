@@ -17,5 +17,19 @@
         - name: Imprimir el nombre del play que se está ejecutando
           ansible.builtin.debug:
             msg: "El nombre del play es: {{ ansible_play_name }}"
-        
+            
       name: Información del sistema y entorno de ejecución
+    - block:
+        - name: Numero de CPUs
+          ansible.builtin.debug:
+            msg: "Número de procesadores: {{ ansible_processor_vcpus }}"
+
+        - name: Memoria RAM total en MB
+          ansible.builtin.debug:
+            msg: "Memoria RAM total: {{ ansible_memtotal_mb }} MB"
+
+        - name: Arquitectura del sistema
+          ansible.builtin.debug:
+            msg: "Arquitectura: {{ ansible_architecture }}"
+            
+      name: Información más avanzada del sistema
