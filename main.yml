@@ -1,0 +1,25 @@
+---
+- name: Mostrar información del sistema y nombres de integrantes
+  hosts: localhost
+  connection: local
+  gather_facts: true
+
+  tasks:
+    - block:
+        - name: Imprimir la distribución de Linux
+          ansible.builtin.debug:
+            msg: "La distribución de Linux es: {{ ansible_distribution }}"
+
+        - name: Imprimir la dirección IP del host
+          ansible.builtin.debug:
+            msg: "La dirección IP del host es: {{ ansible_default_ipv4.address }}"
+
+        - name: Imprimir el directorio donde se ejecuta el playbook
+          ansible.builtin.debug:
+            msg: "El playbook se ejecuta en el directorio: {{ playbook_dir }}"
+
+        - name: Imprimir el nombre del play que se está ejecutando
+          ansible.builtin.debug:
+            msg: "El nombre del play es: {{ ansible_play_name }}"
+        
+      name: Información del sistema y entorno de ejecución
